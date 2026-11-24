@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haven Homes - Property Listings</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7f6;
+            color: #263832;
+        }
+
+        /* Header */
+        header {
+            background: #173b35;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h2 {
+            color: #f2c078;
+            font-size: 26px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #f2c078;
+        }
+
+        /* Hero Section */
+        .hero {
+            background:
+                linear-gradient(rgba(10,40,30,.7), rgba(10,40,30,.7)),
+                url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 110px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .hero a {
+            background: #f2c078;
+            color: #173b35;
+            padding: 13px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* Section Heading */
+        section {
+            padding: 65px 7%;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .heading h2 {
+            font-size: 34px;
+            color: #173b35;
+            margin-bottom: 10px;
+        }
+
+        .heading p {
+            color: #777;
+        }
+
+        /* Property Cards */
+        .property-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,.1);
+            transition: .3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 22px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e1f2e8;
+            color: #26734e;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .property-info h3 {
+            font-size: 21px;
+            color: #173b35;
+            margin-bottom: 8px;
+        }
+
+        .location {
+            color: #777;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #c18132;
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 12px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        .description {
+            color: #666;
+            margin: 15px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            display: block;
+            text-align: center;
+            background: #173b35;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .contact-btn:hover {
+            background: #286052;
+        }
+
+        /* Facilities */
+        .facilities {
+            background: #eaf1ed;
+        }
+
+        .facility-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .facility-card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .facility-card h3 {
+            color: #245548;
+            margin-top: 10px;
+        }
+
+        .icon {
+            font-size: 38px;
+        }
+
+        /* Contact */
+        .contact {
+            background: #173b35;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin-bottom: 20px;
+        }
+
+        .contact a {
+            display: inline-block;
+            background: #f2c078;
+            color: #173b35;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #102b26;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 900px) {
+            .property-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .facility-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .property-container,
+            .facility-container {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h2>HAVEN HOMES</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#properties">Properties</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <h1>Find Your Dream Home</h1>
+
+        <p>
+            Discover beautiful houses, apartments and villas
+            at the best locations.
+        </p>
+
+        <a href="#properties">Explore Properties</a>
+
+    </section>
+
+    <!-- Property Listings -->
+    <section id="properties">
+
+        <div class="heading">
+            <h2>Featured Properties</h2>
+            <p>Explore our latest property listings</p>
+        </div>
+
+        <div class="property-container">
+
+            <!-- Property 1 -->
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+                     alt="Modern family house">
+
+                <div class="property-info">
+
+                    <span class="tag">For Sale</span>
+
+                    <h3>Modern Family House</h3>
+
+                    <p class="location">📍 Benz Circle, Vijayawada</p>
+
+                    <p class="price">₹85 Lakhs</p>
+
+                    <div class="features">
+                        <span>🛏 3 Beds</span>
+                        <span>🛁 2 Baths</span>
+                        <span>📐 1800 sq.ft.</span>
+                    </div>
+
+                    <p class="description">
+                        Beautiful family house with modern kitchen,
+                        balcony and covered parking.
+                    </p>
+
+                    <a href="tel:+919876543210" class="contact-btn">
+                        Contact Seller
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+                     alt="Luxury apartment">
+
+                <div class="property-info">
+
+                    <span class="tag">For Rent</span>
+
+                    <h3>Luxury City Apartment</h3>
+
+                    <p class="location">📍 Guntur, Andhra Pradesh</p>
+
+                    <p class="price">₹18,000 / month</p>
+
+                    <div class="features">
+                        <span>🛏 2 Beds</span>
+                        <span>🛁 2 Baths</span>
+                        <span>📐 1100 sq.ft.</span>
+                    </div>
+
+                    <p class="description">
+                        Comfortable apartment near shopping malls,
+                        schools and transport facilities.
+                    </p>
+
+                    <a href="mailto:properties@example.com" class="contact-btn">
+                        Contact Seller
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Property 3 -->
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80"
+                     alt="Beautiful villa">
+
+                <div class="property-info">
+
+                    <span class="tag">For Sale</span>
+
+                    <h3>Green Garden Villa</h3>
+
+                    <p class="location">📍 Amaravati, Andhra Pradesh</p>
+
+                    <p class="price">₹1.25 Crore</p>
+
+                    <div class="features">
+                        <span>🛏 4 Beds</span>
+                        <span>🛁 3 Baths</span>
+                        <span>📐 2400 sq.ft.</span>
+                    </div>
+
+                    <p class="description">
+                        Beautiful villa with private garden,
+                        spacious rooms and peaceful surroundings.
+                    </p>
+
+                    <a href="tel:+919876543210" class="contact-btn">
+                        Contact Seller
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Property 4 -->
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80"
+                     alt="Bright apartment">
+
+                <div class="property-info">
+
+                    <span class="tag">For Rent</span>
+
+                    <h3>Bright Starter Apartment</h3>
+
+                    <p class="location">📍 Poranki, Vijayawada</p>
+
+                    <p class="price">₹12,500 / month</p>
+
+                    <div class="features">
+                        <span>🛏 2 Beds</span>
+                        <span>🛁 1 Bath</span>
+                        <span>📐 900 sq.ft.</span>
+                    </div>
+
+                    <p class="description">
+                        Affordable apartment with natural lighting
+                        and nearby shopping facilities.
+                    </p>
+
+                    <a href="mailto:properties@example.com" class="contact-btn">
+                        Contact Seller
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Property 5 -->
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80"
+                     alt="Elegant residence">
+
+                <div class="property-info">
+
+                    <span class="tag">For Sale</span>
+
+                    <h3>Elegant Family Residence</h3>
+
+                    <p class="location">📍 Mangalagiri, Andhra Pradesh</p>
+
+                    <p class="price">₹72 Lakhs</p>
+
+                    <div class="features">
+                        <span>🛏 3 Beds</span>
+                        <span>🛁 2 Baths</span>
+                        <span>📐 1650 sq.ft.</span>
+                    </div>
+
+                    <p class="description">
+                        Spacious family home with comfortable
+                        living areas and dedicated parking.
+                    </p>
+
+                    <a href="tel:+919876543210" class="contact-btn">
+                        Contact Seller
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Property 6 -->
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80"
+                     alt="Stylish modern home">
+
+                <div class="property-info">
+
+                    <span class="tag">For Rent</span>
+
+                    <h3>Comfort Living Home</h3>
+
+                    <p class="location">📍 Tadepalli, Andhra Pradesh</p>
+
+                    <p class="price">₹20,000 / month</p>
+
+                    <div class="features">
+                        <span>🛏 3 Beds</span>
+                        <span>🛁 2 Baths</span>
+                        <span>📐 1400 sq.ft.</span>
+                    </div>
+
+                    <p class="description">
+                        Welcoming home with modular kitchen,
+                        balcony and secure surroundings.
+                    </p>
+
+                    <a href="mailto:properties@example.com" class="contact-btn">
+                        Contact Seller
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="facilities" id="facilities">
+
+        <div class="heading">
+            <h2>Available Facilities</h2>
+            <p>Comfort and convenience for your family</p>
+        </div>
+
+        <div class="facility-container">
+
+            <div class="facility-card">
+                <div class="icon">🚗</div>
+                <h3>Parking</h3>
+            </div>
+
+            <div class="facility-card">
+                <div class="icon">💧</div>
+                <h3>Water Supply</h3>
+            </div>
+
+            <div class="facility-card">
+                <div class="icon">🔒</div>
+                <h3>Security</h3>
+            </div>
+
+            <div class="facility-card">
+                <div class="icon">🌳</div>
+                <h3>Green Spaces</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+
+        <h2>Find Your Dream Property!</h2>
+
+        <p>
+            Contact our property team for more information
+            and property visits.
+        </p>
+
+        <a href="tel:+919876543210">Call Us</a>
+
+        <a href="mailto:properties@example.com">Email Us</a>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>HAVEN HOMES</h3>
+
+        <p>Find Your Place. Build Your Future.</p>
+
+        <p>© 2026 Haven Homes. All Rights Reserved.</p>
+
+        <p>Note: Property details and prices are sample information.</p>
+
+    </footer>
+
+</body>
+</html>
