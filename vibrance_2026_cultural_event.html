@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibrance 2026 - Cultural Fest</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #fffaf7;
+            color: #25213b;
+            line-height: 1.6;
+        }
+        header {
+            background: #211638;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        header h2 { color: #ffb454; }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+        nav a:hover { color: #ffb454; }
+        .hero {
+            background: linear-gradient(120deg, #40205d, #b54476, #f28b56);
+            color: white;
+            text-align: center;
+            padding: 110px 20px;
+        }
+        .hero h1 { font-size: 55px; margin: 20px; }
+        .hero p { font-size: 18px; margin-bottom: 25px; }
+        .btn {
+            display: inline-block;
+            background: #ffb454;
+            color: #211638;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        section { padding: 65px 8%; }
+        .heading { text-align: center; margin-bottom: 35px; }
+        .heading h2 { font-size: 32px; color: #51275f; }
+        .details, .performers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .card, .performer {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px #ddd;
+        }
+        .card h3, .performer h3 {
+            color: #b54476;
+            margin-bottom: 12px;
+        }
+        .card p, .performer p { color: #666; }
+        .emoji { font-size: 40px; margin-bottom: 10px; }
+        #schedule { background: #f4edf6; }
+        .schedule-item {
+            background: white;
+            padding: 18px;
+            margin: 15px auto;
+            max-width: 750px;
+            border-left: 5px solid #b54476;
+            border-radius: 8px;
+        }
+        .schedule-item h3 { color: #51275f; }
+        .performer .emoji { font-size: 55px; }
+        #venue {
+            background: #211638;
+            color: white;
+            text-align: center;
+        }
+        #venue h2 { color: #ffb454; margin-bottom: 20px; }
+        .registration {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #ddd;
+        }
+        .registration input, .registration select,
+        .registration textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        .registration label { font-weight: bold; }
+        .registration button {
+            background: #b54476;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .registration button:hover { background: #51275f; }
+        footer {
+            background: #160f24;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 38px; }
+            .details, .performers { grid-template-columns: 1fr; }
+            nav { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>VIBRANCE 2026</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#performers">Performers</a>
+            <a href="#venue">Venue</a>
+            <a href="#register">Register</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>LET YOUR SPIRIT SHINE!</h1>
+        <p>Welcome to the biggest college cultural festival filled with music, dance, fun and entertainment.</p>
+        <p>📅 18–19 December 2026 | 📍 College Main Campus</p>
+        <a href="#register" class="btn">Register Now</a>
+    </section>
+
+    <section id="about">
+        <div class="heading">
+            <h2>About Our Event</h2>
+            <p>Celebrate talent, creativity and friendship!</p>
+        </div>
+        <div class="details">
+            <div class="card">
+                <div class="emoji">🎭</div>
+                <h3>Cultural Activities</h3>
+                <p>Dance, drama, singing and exciting cultural performances.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">🎵</div>
+                <h3>Music Festival</h3>
+                <p>Enjoy live music, DJ performances and entertainment.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">🏆</div>
+                <h3>Competitions</h3>
+                <p>Participate in competitions and win exciting prizes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule">
+        <div class="heading">
+            <h2>Event Schedule</h2>
+            <p>Two days of fun and entertainment!</p>
+        </div>
+        <div class="schedule-item">
+            <h3>9:00 AM - Opening Ceremony</h3>
+            <p>Welcome speech and inauguration.</p>
+        </div>
+        <div class="schedule-item">
+            <h3>10:30 AM - Dance Performances</h3>
+            <p>Solo and group dance competitions.</p>
+        </div>
+        <div class="schedule-item">
+            <h3>1:00 PM - Food Break</h3>
+            <p>Enjoy delicious food and refreshments.</p>
+        </div>
+        <div class="schedule-item">
+            <h3>2:00 PM - Cultural Activities</h3>
+            <p>Drama, fashion show and art competitions.</p>
+        </div>
+        <div class="schedule-item">
+            <h3>5:00 PM - Live Music</h3>
+            <p>Special live band performances.</p>
+        </div>
+        <div class="schedule-item">
+            <h3>6:30 PM - Grand Finale</h3>
+            <p>Prize distribution and closing ceremony.</p>
+        </div>
+    </section>
+
+    <section id="performers">
+        <div class="heading">
+            <h2>Our Performers</h2>
+            <p>Meet the stars of our cultural festival.</p>
+        </div>
+        <div class="performers">
+            <div class="performer">
+                <div class="emoji">🎤</div>
+                <h3>Campus Beats</h3>
+                <p>Live Music Band</p>
+            </div>
+            <div class="performer">
+                <div class="emoji">💃</div>
+                <h3>Rhythm Crew</h3>
+                <p>Dance Performers</p>
+            </div>
+            <div class="performer">
+                <div class="emoji">🎧</div>
+                <h3>DJ Nova</h3>
+                <p>Special DJ Performance</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="venue">
+        <h2>Venue Information</h2>
+        <h3>College Main Auditorium &amp; Open Grounds</h3>
+        <p>ABC College Campus, Main Road, Vijayawada, Andhra Pradesh.</p>
+        <p>Entry Time: 8:30 AM</p>
+    </section>
+
+    <section id="register">
+        <div class="heading">
+            <h2>Student Registration</h2>
+            <p>Register now and become part of the celebration!</p>
+        </div>
+        <div class="registration">
+            <form action="#" method="post">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="college">College Name</label>
+                <input type="text" id="college" name="college" placeholder="Enter your college name" required>
+
+                <label for="year">Year of Study</label>
+                <select id="year" name="year" required>
+                    <option value="">Select Year</option>
+                    <option>1st Year</option>
+                    <option>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                </select>
+
+                <label for="event">Choose Your Event</label>
+                <select id="event" name="event" required>
+                    <option value="">Select Event</option>
+                    <option>Dance</option>
+                    <option>Singing</option>
+                    <option>Drama</option>
+                    <option>Fashion Show</option>
+                    <option>General Participation</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message"></textarea>
+
+                <button type="submit">Submit Registration</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <h3>VIBRANCE 2026</h3>
+        <p>Celebrate Talent. Celebrate Togetherness.</p>
+        <p>Contact: culturalclub@example.com</p>
+        <p>© 2026 College Cultural Fest. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
